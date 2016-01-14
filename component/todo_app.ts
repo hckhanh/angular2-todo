@@ -8,7 +8,9 @@ import {TodoList} from './todo_list';
     template: `
         <h2>Todo List</h2>
         <div [hidden]="todos.length == 0">
-            <label>Complete {{remaining}}/{{todos.length}}</label> • <a href="javascript: false" (click)="clearAll($event)">Clear all</a>
+            <label>Complete {{remaining}}/{{todos.length}}</label>
+             • <a href="javascript: false" (click)="clearAll($event)">Clear all</a>
+             • <a href="javascript: false" (click)="archive($event)">Archive</a>
         </div>
         <todo-form (addTodoEvent)="addTask($event)"></todo-form>
         <todo-list [todos]="todos"></todo-list>
@@ -31,5 +33,17 @@ export class TodoApp {
         event.preventDefault();
 
         this.todos = [];
+    }
+
+    archive(event) {
+        event.preventDefault();
+
+        var oldTodos = this.todos;
+        this.todos = [];
+
+        oldTodos.forEach((todo: Todo) => {
+            if (!todo.done)
+                this.todos.push(todo);
+        });
     }
 }
