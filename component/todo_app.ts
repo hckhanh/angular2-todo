@@ -1,7 +1,7 @@
 import {Component} from 'angular2/core';
-import {Todo} from './todo.js';
-import {TodoForm} from './todo_form.js';
-import {TodoList} from './todo_list.js';
+import {Todo} from './todo';
+import {TodoForm} from './todo_form';
+import {TodoList} from './todo_list';
 
 @Component({
     selector: 'todo-app',

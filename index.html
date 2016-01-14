@@ -13,13 +13,13 @@
     <script>
       System.config({
         packages: {        
-          app: {
+          'build': {
             format: 'register',
             defaultExtension: 'js'
           }
         }
       });
-      System.import('build/boot.js')
+      System.import('build/boot')
             .then(null, console.error.bind(console));
     </script>
 
@@ -27,7 +27,7 @@
 
   <!-- 3. Display the application -->
   <body>
-    <todo-app>Loading...</todo-app>
+    <todo-app class="container" style="display: block">Loading...</todo-app>
   </body>
 
 </html>

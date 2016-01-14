@@ -1,5 +1,5 @@
 import {Component, Output, EventEmitter} from 'angular2/core';
-import {Todo} from './todo.js';
+import {Todo} from './todo';
 
 @Component({
     selector: 'todo-form',
@@ -8,6 +8,8 @@ import {Todo} from './todo.js';
 
 export class TodoForm {
     @Output() addTodoEvent = new EventEmitter<Todo>();
+
+    task: string;
 
     addTodo(): void {
         if (this.task) {
