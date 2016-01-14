@@ -1,6 +1,6 @@
 import {bootstrap} from 'angular2/platform/browser';
-//import {TodoList} from './todo_list.js';
-//import {TodoForm} from './todo_form.js';
+import {enableProdMode} from 'angular2/core';
 import {TodoApp} from './todo_app';
 
+enableProdMode();
 bootstrap(TodoApp);

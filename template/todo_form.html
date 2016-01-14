@@ -1,4 +1,6 @@
-<form (ngSubmit)="addTodo()">
-	<input type="text" [(ngModel)]="task" size="30" placeholder="Add task here..." />
-	<input class="btn-primary" type="submit" value="add" />
+<form class="form-inline" (ngSubmit)="addTodo()">
+	<div class="form-group">
+		<input type="text" class="form-control" [(ngModel)]="task" size="30" placeholder="Add task here..." />
+		<input class="btn btn-default" type="submit" value="add" />
+	</div>
 </form>

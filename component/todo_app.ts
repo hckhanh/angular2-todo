@@ -6,8 +6,10 @@ import {TodoList} from './todo_list';
 @Component({
     selector: 'todo-app',
     template: `
-        <h2>Todo</h2>
-        <span [hidden]="todos.length == 0">Complete {{remaining}}/{{todos.length}}</span>
+        <h2>Todo List</h2>
+        <div [hidden]="todos.length == 0">
+            <label>Complete {{remaining}}/{{todos.length}}</label> • <a href="javascript: false" (click)="clearAll($event)">Clear all</a>
+        </div>
         <todo-form (addTodoEvent)="addTask($event)"></todo-form>
         <todo-list [todos]="todos"></todo-list>
     `,
@@ -23,5 +25,11 @@ export class TodoApp {
 
     get remaining() {
         return this.todos.reduce((count: number, todo: Todo) => todo.done ? count + 1 : count, 0);
+    }
+
+    clearAll(event) {
+        event.preventDefault();
+
+        this.todos = [];
     }
 }
