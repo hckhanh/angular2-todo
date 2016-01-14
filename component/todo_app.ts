@@ -38,12 +38,6 @@ export class TodoApp {
     archive(event) {
         event.preventDefault();
 
-        var oldTodos = this.todos;
-        this.todos = [];
-
-        oldTodos.forEach((todo: Todo) => {
-            if (!todo.done)
-                this.todos.push(todo);
-        });
+        this.todos = this.todos.filter((todo: Todo) => !todo.done);
     }
 }
